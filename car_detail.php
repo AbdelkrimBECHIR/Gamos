@@ -1,6 +1,6 @@
 <?php
 
-$title = "home";
+$title = "détail car";
 include("header.php");
 
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-$title = "home";
+$title = "Mon profil";
 include("header.php");
 
 ?>

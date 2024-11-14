@@ -1,6 +1,6 @@
 <?php
 
-$title = "home";
+$title = "reservation";
 include("header.php");
 
 ?>
