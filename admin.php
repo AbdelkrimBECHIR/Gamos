@@ -20,6 +20,7 @@ include("header.php");
             padding-left: 20px;
             flex-direction: column;
             justify-content: start;
+            align-items: center;
         }
     </style>
 </head>
@@ -29,13 +30,13 @@ include("header.php");
     <div class="gestionvl>
         <h3>Liste des utilisateurs</h3> 
         <button type=" button" class="btn btn-warning">Ajouter un utilisateur</button>
-    </div>
-    <select class="form-select" aria-label="Default select example">
-        <option selected>Sélectionner votre statut</option>
-        <option value="1">Admin</option>
-        <option value="2">Employé</option>
-        <option value="3">utilisateurs</option>
-    </select>
+
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Sélectionner votre statut</option>
+            <option value="1">Admin</option>
+            <option value="2">Employé</option>
+            <option value="3">utilisateurs</option>
+        </select>
     </div>
 
     <div class="d-flex gap-3">
@@ -54,6 +55,7 @@ include("header.php");
         <option value="3">utilisateurs</option>
         <button type="button" class="btn btn-warning">Mettre à jour</button>
         <button type="button" class="btn btn-danger">Supprimer</button>
+    </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
