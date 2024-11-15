@@ -21,7 +21,7 @@ include("header.php");
         }
     </style>
 </head>
-
+ <!-- Probleme responsive Solution probable grid []|[] -->
 <body>
     <div class="nav">
         <div class="d-flex justify-content-start">
@@ -98,21 +98,18 @@ include("header.php");
                     </div>
 
                     <div class="input-group mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-default">Immatriculation</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            </div>
+                        <span class="input-group-text" id="inputGroup-sizing-default">Immatriculation</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
 
-            <!-- Flexbox start -->
+                    <!-- Flexbox start --> 
 
-            <button type="button" class="btn btn-danger">Supprimer</button>
-            <button type="button" class="btn btn-warning">Modifier</button>
-            <div class="input-group mb-3">
-  <span class="input-group-text" id="inputGroup-sizing-default">Entrer une catégorie ici :</span>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-</div>
-
-
-
+                    <button type="button" class="btn btn-danger">Supprimer</button>
+                    <button type="button" class="btn btn-warning">Modifier</button>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Entrer une catégorie ici :</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
