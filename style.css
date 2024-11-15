@@ -3,6 +3,10 @@
     
     
 }
+@font-face {
+    font-family: 'NFS_by_JLTV';
+    src: url('NFS_by_JLTV.ttf') format('truetype');
+}
 main{
     display: flex;
     background-color: rgb(1, 99, 1);
@@ -21,7 +25,7 @@ header{
     background-color: black;
     color: white;
     padding: 10px;
-    
+    font-family: 'NFS_by_JLTV';
 }
 
 footer{
