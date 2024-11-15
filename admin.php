@@ -36,7 +36,7 @@ include 'functionAdmin.php'
         .add_admin {
             display: flex;
             gap: 150px;
-           
+
 
         }
 
@@ -47,8 +47,8 @@ include 'functionAdmin.php'
             overflow: auto;
         }
 
-          
-        .li_admin{
+
+        .li_admin {
             display: flex;
             flex-direction: row;
             gap: 50px;
@@ -88,15 +88,31 @@ include 'functionAdmin.php'
 
         <div class="liste_admin">
             <!-- faire une liste avec un foreach qui affiche tout les noms selon le role  -->
-            
-                <ul>
-                    <li class="li_admin">
-                        <p>Harold le chef bootstrap</p>
-                        <button type="button" class="btn btn-warning">Mettre à jour</button>
-                        <button type="button" class="btn btn-danger">Supprimer</button>
-                    </li>
-                </ul>
-           
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col"> Données Utilisateurs :
+                        <?php foreach ($users as $user) {
+                            echo "Prenom: " . $user['prenom'] . "Nom: " . $user['nom'] . "Email: " . $user['email'] . "Role: " . $user['role'] . "\n";
+                        }
+                        ?>
+                    </div>
+                    <div class="col">Nom des Employés : </div>
+                    <div class="col">Nom des Administrateurs</div>
+                    <div class="col">col</div>
+                </div>
+                <div class="row">
+                    <div class="col-8">col-8</div>
+                    <div class="col-4">col-4</div>
+                </div>
+            </div>
+            <ul>
+                <li class="li_admin">
+                    <p>Harold le chef bootstrap</p>
+                    <button type="button" class="btn btn-warning">Mettre à jour</button>
+                    <button type="button" class="btn btn-danger">Supprimer</button>
+                </li>
+            </ul>
+
         </div>
 
     </div>
