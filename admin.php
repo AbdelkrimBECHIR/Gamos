@@ -41,7 +41,7 @@ include("header.php");
         .liste_admin {
             border: solid;
             height: 300px;
-            width: 800px;
+            width: 600px;
             overflow: auto;
         }
 

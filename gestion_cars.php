@@ -7,7 +7,7 @@ include("header.php");
 
 
 
-
+<a href="logout.php">Se deconnecter</a>
 
 
 
