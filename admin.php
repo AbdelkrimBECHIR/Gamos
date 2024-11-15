@@ -1,7 +1,9 @@
 <?php
-
+include 'connex_bdd.php';
 $title = "Admin";
 include("header.php");
+include 'functionAdmin.php'
+
 
 ?>
 
@@ -103,9 +105,6 @@ include("header.php");
 </body>
 
 </html>
-
-
-
 
 
 

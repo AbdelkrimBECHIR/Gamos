@@ -1,7 +1,7 @@
 <?php
 
 // connexion bdd
-$dsn= "mysql:host=localhost;dbname=db_gamos;charset=utf8mb4";
+$dsn= "mysql:host=localhost;dbname=gamos;charset=utf8mb4";
 $username="root";
 $password="";
 $options=[
