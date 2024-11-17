@@ -9,14 +9,29 @@ include("connex_bdd.php");
 if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST["user_mail"]) && isset($_POST["password"])) {
   $email = filter_var(trim($_POST["user_mail"]), FILTER_SANITIZE_EMAIL);
   $password = trim($_POST["password"]);
+  $errors = [];
 
-
-  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo "email invalide";
-    exit;
+  if (empty($email)) {
+    $errors[] = " le mail doit etre renseigné";
   }
 
-  // ajouter bloc securite preg match
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errors[] = "email invalide";
+  }
+
+  if (empty($password)) {
+    $errors[] = "le mot de passe doit etre rensiegné";
+  }
+
+  if (!preg_match("/^\d{3,6}$/", $password)) {
+    $errors[] = "le mot de passe doit seulement entre 3 et 6 chiffres";
+  }
+
+  if (!empty($errors)) {
+    $_SESSION["error"] = $errors;
+    header("location:login.php");
+    exit();
+  }
 
 
   function recupUserBdd($email, $pdo)
@@ -49,11 +64,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST["user_mail"]) && isset
     }
   }
 
-  function locationRole($utilisateur)  {
-    if (isset($utilisateur)){
-          print_r($utilisateur);
+  function locationRole($utilisateur)
+  {
+    if (isset($utilisateur)) {
 
-        if (password_verify($_POST["password"], $utilisateur["mot_de_passe"])){
+      if (password_verify($_POST["password"], $utilisateur["mot_de_passe"])) {
         $_SESSION["id_utilisateur"] = $utilisateur["id_utilisateur"];
         $_SESSION["email"] = $utilisateur["email"];
         $_SESSION["role"] = $utilisateur["role"];
@@ -79,11 +94,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST["user_mail"]) && isset
       }
     }
   }
-  
-
-
-
-
 
   $utilisateur = recupUserBdd($email, $pdo);
 
@@ -97,15 +107,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST["user_mail"]) && isset
     if (addUserBdd($email, $hashedPassword, $pdo)) {
 
       $utilisateur = recupUserBdd($email, $pdo);
-
-      
       locationRole($utilisateur);
     } else {
       echo "erreur d'enregistrement";
       exit();
     }
   }
-} else {
-  echo " tout les champs doivent etre remplis";
-  exit();
-}
+} 
+
