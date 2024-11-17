@@ -8,8 +8,8 @@ include("header.php");
     .centertop {
         display: flex;
         flex-wrap: wrap;
- 
-     
+
+
         height: 200px;
         width: 1200vh;
         align-items: center;
@@ -52,18 +52,27 @@ include("header.php");
         <option value="5">6</option>
         <option value="6">7</option>
     </select>
-<!-- GRID bootstrap-->
+    <!-- GRID bootstrap-->
 
     <div class="container text-center">
-        <div class="cols-lg-4">
+        <div class="row">
             <div class="col">PICTURE'S GAMOS</div>
             <div class="col">PICTURE'S GAMOS</div>
             <div class="col">PICTURE'S GAMOS</div>
+        </div>
+        <div class="row">
+            <div class="col">PICTURE'S GAMOS</div>
+            <div class="col">PICTURE'S GAMOS</div>
+            <div class="col">PICTURE'S GAMOS</div>
+        </div>
+        <div class="row">
             <div class="col">PICTURE'S GAMOS</div>
             <div class="col">PICTURE'S GAMOS</div>
             <div class="col">PICTURE'S GAMOS</div>
         </div>
     </div>
+</div>
+</div>
 </div>
 
 
