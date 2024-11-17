@@ -53,7 +53,7 @@ include("header.php");
     </select> 
 </div>
 <!-- GRID bootstrap-->
-<div class="container center d-flex align-items-center justify-content-center">
+<div class="container center d-flex align-items-center   justify-content-center">
     <div class="container text-center">
     <div class="row row-cols-3">
         <div class="col">Column</div>
