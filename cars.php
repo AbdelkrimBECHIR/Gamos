@@ -7,14 +7,15 @@ include("header.php");
 <style>
     .centertop {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between ;
+        flex-wrap: wrap;
+ 
+     
         height: 200px;
         width: 1200vh;
         align-items: center;
         background-color: red;
     }
-    </style>
+</style>
 <!-- SELECT Bootstrap -->
 <div class="centertop">
     <select class="form-select form-select-sm" aria-label="Small select example">
@@ -50,20 +51,19 @@ include("header.php");
         <option value="4">5</option>
         <option value="5">6</option>
         <option value="6">7</option>
-    </select> 
-</div>
+    </select>
 <!-- GRID bootstrap-->
-<div class="container center d-flex align-items-center   justify-content-center">
+
     <div class="container text-center">
-    <div class="row row-cols-3">
-        <div class="col">Column</div>
-        <div class="col">Column</div>
-        <div class="col">Column</div>
-        <div class="col">Column</div>
-        <div class="col">Column</div>
-        <div class="col">Column</div>
+        <div class="cols-lg-4">
+            <div class="col">PICTURE'S GAMOS</div>
+            <div class="col">PICTURE'S GAMOS</div>
+            <div class="col">PICTURE'S GAMOS</div>
+            <div class="col">PICTURE'S GAMOS</div>
+            <div class="col">PICTURE'S GAMOS</div>
+            <div class="col">PICTURE'S GAMOS</div>
+        </div>
     </div>
-</div>
 </div>
 
 
