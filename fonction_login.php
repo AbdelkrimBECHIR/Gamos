@@ -1,52 +1,111 @@
 <?php
-//lancement d'une session
+
 session_start();
 
-//connexion a la bdd
+
 include("connex_bdd.php");
 
-//verification du mail et password en post
-if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST["user_mail"]) && isset($_POST["password"])){
-$email = filter_var(trim($_POST["user_mail"]),FILTER_SANITIZE_EMAIL);
-$password = trim($_POST["password"]);
+
+if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST["user_mail"]) && isset($_POST["password"])) {
+  $email = filter_var(trim($_POST["user_mail"]), FILTER_SANITIZE_EMAIL);
+  $password = trim($_POST["password"]);
 
 
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo "email invalide";
+    exit;
+  }
 
-// requete pdo avec preparation pour recup les donneés user
-$query = "select * from Utilisateurs where email=:email";
-$stmt=$pdo->prepare($query);
-$stmt->bindParam('email',$email, PDO::PARAM_STR);
+  // ajouter bloc securite preg match
 
-$stmt->execute();
-$utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
-var_dump($utilisateur);
-//verification du mot de passe
-if ($utilisateur && $password === $utilisateur["mot_de_passe"]) {
-    
-    
-    $_SESSION['nom'] = $utilisateur["nom"];
-    $_SESSION['id'] = $utilisateur["id"];
-    
-     var_dump($utilisateur);   
 
-    $role=$utilisateur["role"];
-    switch ($role) {
-       
-        case "admin":
+  function recupUserBdd($email, $pdo)
+  {
+    $query = "SELECT * from Utilisateurs where email=:email";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+
+    $stmt->execute();
+    $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $utilisateur;
+  }
+
+  function addUserBdd($email, $hashedPassword, $pdo)
+  {
+    $query = "INSERT INTO utilisateurs (nom,prenom,email,mot_de_passe,numero_permis,role) VALUES(:nom,:prenom,:email,:mot_de_passe,:numero_permis,:role)";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindValue(':nom', 'ab', PDO::PARAM_STR);
+    $stmt->bindValue(':prenom', 'ab', PDO::PARAM_STR);
+    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+    $stmt->bindParam(':mot_de_passe', $hashedPassword, PDO::PARAM_STR);
+    $stmt->bindValue(':numero_permis', '11111', PDO::PARAM_INT);
+    $stmt->bindValue(':role', 'utilisateur', PDO::PARAM_STR);
+
+    if ($stmt->execute()) {
+      return true;
+    } else {
+      echo "pb d'insertion dans la bdd";
+      return false;
+    }
+  }
+
+  function locationRole($utilisateur)  {
+    if (isset($utilisateur)){
+          print_r($utilisateur);
+
+        if (password_verify($_POST["password"], $utilisateur["mot_de_passe"])){
+        $_SESSION["id_utilisateur"] = $utilisateur["id_utilisateur"];
+        $_SESSION["email"] = $utilisateur["email"];
+        $_SESSION["role"] = $utilisateur["role"];
+        $role = $utilisateur["role"];
+
+        switch ($role) {
+
+          case "admin":
             header("location:admin.php");
             exit;
-        case "employe":
+          case "employe":
             header("location:gestion_cars.php");
             exit;
-        default:
+          case "utilisateur":
             header("location:home.php");
+          default:
+            echo "probleme de role";
+            exit;
         }
-    }else{
-         echo "l'email ou le mot de passe est incorrect";
+      } else {
+        echo "mot de passe incorrect";
+        exit();
+      }
     }
-}else{
-    echo "l'email et le mot de passe ne doivent pas etre vide";
+  }
+  
+
+
+
+
+
+  $utilisateur = recupUserBdd($email, $pdo);
+
+
+
+  if ($utilisateur) {
+
+    locationRole($utilisateur);
+  } else {
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    if (addUserBdd($email, $hashedPassword, $pdo)) {
+
+      $utilisateur = recupUserBdd($email, $pdo);
+
+      
+      locationRole($utilisateur);
+    } else {
+      echo "erreur d'enregistrement";
+      exit();
+    }
+  }
+} else {
+  echo " tout les champs doivent etre remplis";
+  exit();
 }
-
-
-?>
