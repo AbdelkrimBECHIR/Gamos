@@ -34,14 +34,6 @@ unset($_SESSION["error"]);
 
 </div>
 
-
-
-
-
-
-
-
-
 <?php
 
 include("footer.php");

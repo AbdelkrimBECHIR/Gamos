@@ -10,7 +10,6 @@
 </head>
 <body>
     <header>
-        <!-- ajouter logo -->
         <img class="logo" src="/logo/gamos3.jpeg.webp" alt=""><h1></h1>
         <h1>GAMOS Location de vehicules haut de gammes</h1>
         <h2><?php echo $title ?></h2>

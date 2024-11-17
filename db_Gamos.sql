@@ -81,3 +81,5 @@ CREATE TABLE Reservations (
     FOREIGN KEY (id_utilisateur) REFERENCES Utilisateurs(id_utilisateur) ON DELETE CASCADE,
     FOREIGN KEY (id_voiture) REFERENCES Voitures(id_voiture) ON DELETE CASCADE
 );
+
+
