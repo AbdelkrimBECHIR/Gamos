@@ -13,107 +13,64 @@ include("header.php");
     <title>Caractéristiques</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-        .nav {
+        .car_selected {
             display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
+            justify-content: space-between;
+        }
+
+        .princing {
+            display: flex;
+            align-items: flex-end;
         }
     </style>
 </head>
- <!-- Probleme responsive Solution probable grid []|[] -->
-<body>
-    <div class="nav">
-        <div class="d-flex justify-content-start">
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-default">Recherche un véhicule</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            </div>
-
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-default">Immatriculation</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            </div>
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Ajouter un véhicule</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+<div class="row">
+    <div class="col">
+        <div class="car_selected">
+            GAMOS SELECTED
         </div>
     </div>
 
-    <div class="row mb-3">
-        <label for="colFormLabel" class="col-sm-2 col-form-label">Marque</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="colFormLabel" placeholder="Marque">
+    <div class="row">
+        <div class="col">
+            <div class="pricing">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-light"> Prix sans option : </li><!-- function calcul prix total -->
+
+                    <li class="list-group-item list-group-item-primary"> Options : </li>
+                    <div class="form-check form-check-reverse">
+
+                        <input class="form-check-input" type="checkbox" value="" id="reverseCheck1">
+                        <label class="form-check-label" for="reverseCheck1">
+                            <li class="list-group-item">Kilométrage illimité : 15€/jour </li>
+                        </label>
+                        <div class="form-check form-check-reverse">
+                            <input class="form-check-input" type="checkbox" value="" id="reverseCheck1">
+                            <label class="form-check-label" for="reverseCheck1">
+                                <li class="list-group-item"> Assurance tiers : 15€/jour </li>
+                            </label>
+                            <div class="form-check form-check-reverse">
+                                <input class="form-check-input" type="checkbox" value="" id="reverseCheck1">
+                                <label class="form-check-label" for="reverseCheck1">
+                                    <li class="list-group-item"> Nettoyage du véhicule : 45€ </li>
+                                </label>
+                                <div class="form-check form-check-reverse">
+                                    <input class="form-check-input" type="checkbox" value="" id="reverseCheck1">
+                                    <label class="form-check-label" for="reverseCheck1">
+                                        <li class="list-group-item"> Plein du Carburant : 100€ </li>
+                                    </label>
+                                </div>
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+
         </div>
-        <div class="row mb-3">
-            <label for="colFormLabel" class="col-sm-2 col-form-label">Modèle</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="colFormLabel" placeholder="Modèle">
-            </div>
-            <label for="colFormLabel" class="col-sm-2 col-form-label">Kilométrage</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="colFormLabel" placeholder="Kilométrage">
-            </div>
-            <label for="colFormLabel" class="col-sm-2 col-form-label">Prix</label>
-            <div class="col-sm-10">
-                <input type="number" class="form-control" id="colFormLabel" placeholder="Prix">
-            </div>
-            <label for="colFormLabel" class="col-sm-2 col-form-label">Modèle</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="colFormLabel" placeholder="Modèle">
-                <select class="form-select" id="inlineFormSelectPref">
-                    <option selected>Carburant</option>
-                    <option value="1">Essence</option>
-                    <option value="2">Diesel</option>
-                    <option value="3">GPL</option>
-                    <option value="4">Hydrogène</option>
-                    <option value="5">Electrique</option>
-                </select>
-                <div class="col-sm-10">
-                    <select class="form-select" id="inlineFormSelectPref">
-                        <option selected>Transmission</option>
-                        <option value="1">Manuelle</option>
-                        <option value="2">Automatique</option>
-                    </select>
-                    <div class="col-sm-10">
-                        <select class="form-select" id="inlineFormSelectPref">
-                            <option selected>Nombre de siège</option>
-                            <option value="1">2</option>
-                            <option value="2">3</option>
-                            <option value="3">4</option>
-                            <option value="4">5</option>
-                            <option value="5">6</option>
-                            <option value="6">7</option>
-                        </select>
-                        <h3>Option:</h3>
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">Kilométrage illimité</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="colFormLabel" placeholder="Kilométrage illimité">
-                        </div>
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">Assurance</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="colFormLabel" placeholder="Assurance">
-                        </div>
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Immatriculation</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                    </div>
-
-                    <!-- Flexbox start --> 
-
-                    <button type="button" class="btn btn-danger">Supprimer</button>
-                    <button type="button" class="btn btn-warning">Modifier</button>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Entrer une catégorie ici :</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                    </div>
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-
-</html>
+        </ul>
+    </div>
 
 
 
@@ -121,9 +78,8 @@ include("header.php");
 
 
 
+    <?php
 
-<?php
+    include("footer.php");
 
-include("footer.php");
-
-?>
+    ?>
