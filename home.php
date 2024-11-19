@@ -5,54 +5,88 @@ include("header.php");
 
 ?>
 <style>
-    .firstline {
+    .form_home{
+        
+        background-color: blue;
+        width: 100%;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        justify-items: center;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
     }
+
+    .form_homeDiv {
+        
+        display: flex;
+        height: 30px;
+        gap: 150px;              
+    }
+
+    .lieu{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .date{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+
 </style>
-<div class="firstline">
-    <select class="form-select form-select-sm" aria-label="Small select example">
-        <option selected>Lieu de départ</option>
-        <option value="1"><Canvas>Carcasonne</Canvas></option>
-        <option value="2">Gennevilliers</option>
-        <option value="3">Marseilles</option>
-    </select>
 
-    <select class="form-select form-select-sm" aria-label="Small select example">
-        <option selected>Lieu de retour</option>
-        <option value="1">Troyes</option>
-        <option value="2">Champagne</option>
-        <option value="3">Toulon</option>
-    </select>
 
-    <select class="form-select form-select-sm" aria-label="Small select example">
-        <option selected>Date de départ</option>
-        <label for="date">Choisissez une date :</label>
-        <input type="date" id="date" name="date" min="2024-11-15" required>
 
-        <script>
-            // L'attribut "min" permet de définir la date minimale sélectionnable (ici, la date actuelle)
-            const today = new Date().toISOString().split('T')[0]; // Format ISO (YYYY-MM-DD)
-            document.getElementById('date').setAttribute('min', today); // Définir la date minimale à aujourd'hui
-        </script>
 
-    </select>
 
-    <select class="form-select form-select-sm" aria-label="Small select example">
-        <option selected>Date de retour</option>
-        <label for="date">Choisissez une date :</label>
-        <input type="date" id="date" name="date" min="2024-11-15" required>
 
-        <script>
-            // L'attribut "min" permet de définir la date minimale sélectionnable (ici, la date actuelle)
-            const today = new Date().toISOString().split('T')[0]; // Format ISO (YYYY-MM-DD)
-            document.getElementById('date').setAttribute('min', today); // Définir la date minimale à aujourd'hui
-        </script>
+<form  class="form_home" action="home.php" method="post">
 
-    </select>
-</div>
+    <div class="form_homeDiv">
+
+        <div class="lieu">
+                <label for="date">Choisissez une lieu depart:</label>
+                <select name="lieu_depart" class="form-select form-select-sm" aria-label="Small select example">
+                <option selected>Lieu de départ</option>
+                <option value="Lyon"><Canvas>Lyon</Canvas></option>
+                <option value="Paris">Paris</option>
+                <option value="Marseille">Marseille</option>
+            </select>    
+        </div>
+
+        <div class="lieu">
+                <label for="date">Choisissez une lieu retour:</label>
+                <select name="lieu_retour" class="form-select form-select-sm" aria-label="Small select example">
+                <option selected>Lieu de retour</option>
+                <option value="Lyon"><Canvas>Lyon</Canvas></option>
+                <option value="Paris">Paris</option>
+                <option value="Marseille">Marseille</option>
+            </select>   
+        </div>
+   
+    </div>
+
+    <div class="form_homeDiv">
+        <div class="date">
+                <label for="date">Choisissez une date depart:</label>
+                <input type="date" id="date" name="date_depart" min="2024-11-15" required>      
+        </div>
+
+        <div class="date">        
+                <label for="date">Choisissez une date retour:</label>
+                <input type="date" id="date" name="date_retour" min="2024-11-15" required>
+        </div>
+    </div>
+
+    <div>
+        
+        <button type="submit">Voir les voitures</button>
+    </div>
+
+    </form>
+
 
 
 
